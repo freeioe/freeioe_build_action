@@ -10,8 +10,8 @@ COPY --from=toolchain /toolchains /toolchains
 COPY --from=toolchain /download_toolchains.sh
 COPY --from=toolchain /uncompress_toolchains.sh
 
-RUN /download_toolchains.sh
-RUN /uncompress_toolchains.sh
+RUN sh /download_toolchains.sh
+RUN sh /uncompress_toolchains.sh
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
