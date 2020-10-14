@@ -6,24 +6,37 @@ build a [FreeIOE package](https://github.com/freeioe/freeioe) using the prebuilt
 ## Usage
 
 ```yaml
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-deb:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - uses: freeioe/freeioe_build_action@v1
-        id: build
         with:
-		  action: build_skynet_all.sh
+          action: build_skynet_all.sh
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.build.outputs.filename }}
+          name: my-artifact
           path: ${{ steps.build.outputs.filename }}
+
 ```
