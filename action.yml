@@ -1,0 +1,21 @@
+name: 'Build FreeIOE with toolchains'
+description: 'Build a FreeIOE, using the pre-built toolchains'
+
+inputs:
+  action:
+    description: 'Build action script name'
+    required: true
+
+outputs:
+  filename:
+    description: 'Name of the built file'
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.action }}
+
+branding:
+  icon: package
+  color: gray-dark
