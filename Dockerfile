@@ -1,11 +1,17 @@
 FROM kooiot/freeioe_toolchains:latest as toolchain
 
-RUN /download_toolchains.sh
-RUN /uncompress_toolchains.sh
+# uncompress the toolchain in builder image
+# RUN /download_toolchains.sh
+# RUN /uncompress_toolchains.sh
 
-FROM kooiot/debian_builder:latest AS build
+FROM kooiot/debian_builder:latest AS builder
 
 COPY --from=toolchain /toolchains /toolchains
+COPY --from=toolchain /download_toolchains.sh
+COPY --from=toolchain /uncompress_toolchains.sh
+
+RUN /download_toolchains.sh
+RUN /uncompress_toolchains.sh
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
