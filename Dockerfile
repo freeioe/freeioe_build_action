@@ -23,6 +23,11 @@ RUN apt-get install -y build-essential git autoconf \
 	zip \
 	unzip
 
+RUN wget https://github.com/premake/premake-core/releases/download/v5.0.0-alpha15/premake-5.0.0-alpha15-linux.tar.gz -O /premake5.tar.gz
+
+RUN tar -C /usr/bin -xzvf /premake5.tar.gz
+RUN chmod +x /usr/bin/premake5
+
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
 
