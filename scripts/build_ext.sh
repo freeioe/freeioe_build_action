@@ -26,7 +26,7 @@ fi
 
 echo $CC
 cd build
-make config=release
+make config=release verbose=1
 
 cd ..
 file bin/Release/*.so

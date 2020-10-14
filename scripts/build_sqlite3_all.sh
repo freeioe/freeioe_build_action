@@ -39,7 +39,7 @@ do
 	fi
 
 	cd build
-	make config=release
+	make config=release verbose=1
 	cd ..
 	cp -f bin/Release/sqlite3/core.so $TARGET_PATH/${item}/sqlite3/luaclib/sqlite3
 	cp -f lua-sqlite3/sqlite3.lua $TARGET_PATH/${item}/sqlite3/lualib

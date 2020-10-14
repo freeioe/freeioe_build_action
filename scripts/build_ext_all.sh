@@ -11,6 +11,8 @@ echo $SCRIPTPATH
 BUILD_LIB=$1
 CUR_DIR=`pwd`
 
+printf "CUR_DIR: $CUR_DIR"
+
 # Get all platforms
 source $SCRIPTPATH/plats.sh
 

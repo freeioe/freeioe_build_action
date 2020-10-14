@@ -10,6 +10,10 @@ FROM kooiot/debian_builder:latest
 # COPY --from=toolchain /download_toolchains.sh /download_toolchains.sh
 # COPY --from=toolchain /uncompress_toolchains.sh /uncompress_toolchains.sh
 
+
+RUN mkdir -p /home/cch/mycode/
+RUN git clone https://github.com/srdgame/skynet.git /home/cch/mycode/skynet
+
 RUN sh /download_toolchains.sh
 RUN sh /uncompress_toolchains.sh
 
