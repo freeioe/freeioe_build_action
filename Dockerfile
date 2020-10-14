@@ -4,11 +4,11 @@ FROM kooiot/freeioe_toolchains:latest as toolchain
 # RUN /download_toolchains.sh
 # RUN /uncompress_toolchains.sh
 
-FROM kooiot/debian_builder:latest AS builder
+FROM kooiot/debian_builder:latest
 
 COPY --from=toolchain /toolchains /toolchains
-COPY --from=toolchain /download_toolchains.sh
-COPY --from=toolchain /uncompress_toolchains.sh
+COPY --from=toolchain /download_toolchains.sh /download_toolchains.sh
+COPY --from=toolchain /uncompress_toolchains.sh /uncompress_toolchains.sh
 
 RUN sh /download_toolchains.sh
 RUN sh /uncompress_toolchains.sh

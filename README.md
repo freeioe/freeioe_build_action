@@ -30,7 +30,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - uses: freeioe/freeioe_build_action@v1.5
+      - uses: freeioe/freeioe_build_action@v1
         with:
           action: build_skynet_all.sh
 
