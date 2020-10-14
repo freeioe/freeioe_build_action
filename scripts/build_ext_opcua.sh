@@ -44,7 +44,7 @@ if [ "$TOOLCHAIN" == "native" ]; then
 	../build_lib.sh > /dev/null
 	make > /dev/null
 else
-	. ~/toolchains/$TOOLCHAIN
+	source /toolchains/$TOOLCHAIN
 	rm bin -rf
 	rm build_openwrt -rf
 	mkdir build_openwrt

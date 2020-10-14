@@ -33,7 +33,7 @@ do
 		unset AR
 		unset STRIP
 	else
-		. ~/toolchains/${plats[$item]}
+		source /toolchains/${plats[$item]}
 	fi
 
 	cd build

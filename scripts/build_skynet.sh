@@ -26,7 +26,7 @@ if [ "$TOOLCHAIN" == "native" ]; then
 	make linux > /dev/null 2>&1
 else
 	echo "=== export toolchain ==="
-	source ~/toolchains/$TOOLCHAIN
+	source /toolchains/$TOOLCHAIN
 	echo $CC
 	echo "========================"
 	make openwrt > /dev/null 2>&1

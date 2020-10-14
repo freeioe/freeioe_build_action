@@ -19,7 +19,7 @@ if [ "$TOOLCHAIN" == "native" ]; then
 else
 	echo "export toolchain"
 	premake5 --file=premake5_openwrt.lua gmake
-	. ~/toolchains/$TOOLCHAIN
+	source /toolchains/$TOOLCHAIN
 fi
 
 echo $CC
