@@ -1,4 +1,4 @@
-FROM kooiot/freeioe_toolchains:latest as toolchain
+# FROM kooiot/freeioe_toolchains:latest as toolchain
 
 # uncompress the toolchain in builder image
 # RUN /download_toolchains.sh
@@ -7,8 +7,8 @@ FROM kooiot/freeioe_toolchains:latest as toolchain
 FROM kooiot/debian_builder:latest
 
 # COPY --from=toolchain /toolchains /toolchains
-COPY --from=toolchain /download_toolchains.sh /download_toolchains.sh
-COPY --from=toolchain /uncompress_toolchains.sh /uncompress_toolchains.sh
+# COPY --from=toolchain /download_toolchains.sh /download_toolchains.sh
+# COPY --from=toolchain /uncompress_toolchains.sh /uncompress_toolchains.sh
 
 RUN sh /download_toolchains.sh
 RUN sh /uncompress_toolchains.sh
