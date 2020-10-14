@@ -1,5 +1,7 @@
 # !/usr/bin/env sh
 
+set -e
+
 SKYNET_DIR=$1
 RELEASE_DIR="$1/ioe/__release"
 SKYNET_PLAT="skynet"

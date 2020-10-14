@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [ $# -lt 1 ] ; then
 	echo "Usage: build_ext_all.sh <target dir>"
 	exit 0
