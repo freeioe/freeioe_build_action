@@ -3,13 +3,11 @@
 set -e
 
 FILE_DIR="$1"
+RELEASE_DIR="$2"
 
-if [ ! -n "$2" ]
-then
-	RELEASE_DIR="$2"
-else
-	RELEASE_DIR=./__output
-fi
+printf "SRC: $FILE_DIR \t TARGET: $RELEASE_DIR \n"
+
+mkdir -p ${RELEASE_DIR}
 
 cd $FILE_DIR
 
