@@ -15,8 +15,8 @@ echo $SCRIPTPATH
 
 CUR_DIR=`pwd`
 
-mkdir -p /__install
 mkdir -p ${CUR_DIR}/__install
+mkdir -p ${CUR_DIR}/__output
 TARGET_PATH=${CUR_DIR}/__install
 
 # Get all platforms
@@ -48,6 +48,6 @@ do
 	cp -f lua-sqlite3/sqlite3.lua $TARGET_PATH/${item}/sqlite3/lualib
 done
 
-bash $SCRIPTPATH/release_ext.sh ${CUR_DIR}/__install /__install
+bash $SCRIPTPATH/gen_output.sh ${TARGET_PATH} ${CUR_DIR}/__output
 
-ls /__install/*
+ls ${CUR_DIR}/__output/*

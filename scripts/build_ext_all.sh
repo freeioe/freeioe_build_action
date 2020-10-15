@@ -11,8 +11,8 @@ echo $SCRIPTPATH
 BUILD_LIB=$1
 CUR_DIR=`pwd`
 
-mkdir -p /__install
 mkdir -p ${CUR_DIR}/__install
+mkdir -p ${CUR_DIR}/__output
 
 printf "CUR_DIR: $CUR_DIR \n"
 
@@ -28,6 +28,6 @@ do
 	bash $SCRIPTPATH/build_ext.sh $item ${plats[$item]} ${CUR_DIR}/__install/$item/
 done
 
-bash $SCRIPTPATH/release_ext.sh ${CUR_DIR}/__install /__install
+bash $SCRIPTPATH/gen_output.sh ${CUR_DIR}/__install ${CUR_DIR}/__output
 
-ls /__install/*
+ls ${CUR_DIR}/__output/*

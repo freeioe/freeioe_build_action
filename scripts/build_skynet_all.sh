@@ -17,3 +17,9 @@ for item in "${!plats[@]}";
 do
 	bash $SCRIPTPATH/build_skynet.sh $item ${plats[$item]} $SKYNET_DIR $SCRIPTPATH
 done
+
+mkdir -p ${CUR_DIR}/__output
+
+bash $SCRIPTPATH/gen_output.sh ${CUR_DIR}/__install ${CUR_DIR}/__output
+
+ls ${CUR_DIR}/__output/*
