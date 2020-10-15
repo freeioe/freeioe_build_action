@@ -11,6 +11,9 @@ echo $SCRIPTPATH
 BUILD_LIB=$1
 CUR_DIR=`pwd`
 
+mkdir -p /__install
+mkdir -p ${CUR_DIR}/__install
+
 printf "CUR_DIR: $CUR_DIR \n"
 
 # Get all platforms
@@ -21,6 +24,10 @@ do
 	if [ "$BUILD_LIB" == "opcua" ]; then
 		bash $SCRIPTPATH/build_ext_opcua.sh $item ${plats[$item]} $CUR_DIR/../..
 	fi
-	mkdir -p /__install/$item/
-	bash $SCRIPTPATH/build_ext.sh $item ${plats[$item]} /__install/$item/
+	mkdir -p ${CUR_DIR}/__install/$item/
+	bash $SCRIPTPATH/build_ext.sh $item ${plats[$item]} ${CUR_DIR}/__install/$item/
 done
+
+bash $SCRIPTPATH/release_ext.sh ${CUR_DIR}/__install /__install
+
+ls /__install/*

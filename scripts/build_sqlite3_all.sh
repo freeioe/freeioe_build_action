@@ -13,8 +13,11 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 echo $SCRIPTPATH
 
-TARGET_PATH=/__install
 CUR_DIR=`pwd`
+
+mkdir -p /__install
+mkdir -p ${CUR_DIR}/__install
+TARGET_PATH=${CUR_DIR}/__install
 
 # Get all platforms
 source $SCRIPTPATH/plats.sh
@@ -44,3 +47,7 @@ do
 	cp -f bin/Release/sqlite3/core.so $TARGET_PATH/${item}/sqlite3/luaclib/sqlite3
 	cp -f lua-sqlite3/sqlite3.lua $TARGET_PATH/${item}/sqlite3/lualib
 done
+
+bash $SCRIPTPATH/release_ext.sh ${CUR_DIR}/__install /__install
+
+ls /__install/*
