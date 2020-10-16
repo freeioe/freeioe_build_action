@@ -80,7 +80,7 @@ du __install -sh
 ##################
 cd __install
 mkdir -p $RELEASE_DIR
-tar czvf $RELEASE_DIR/$VERSION.tar.gz * > /dev/null
+tar czvf $RELEASE_DIR/$VERSION.tar.gz *
 md5sum -b $RELEASE_DIR/$VERSION.tar.gz > $RELEASE_DIR/$VERSION.tar.gz.md5
 du $RELEASE_DIR/$VERSION.tar.gz -sh
 cat $RELEASE_DIR/$VERSION.tar.gz.md5

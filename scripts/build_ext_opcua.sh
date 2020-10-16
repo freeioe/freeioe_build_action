@@ -43,16 +43,16 @@ if [ "$TOOLCHAIN" == "native" ]; then
 	rm build -rf
 	mkdir build/
 	cd build
-	../build_lib.sh > /dev/null
-	make > /dev/null
+	../build_lib.sh
+	make
 else
 	source /toolchains/$TOOLCHAIN
 	rm bin -rf
 	rm build_openwrt -rf
 	mkdir build_openwrt
 	cd build_openwrt
-	../build_lib_openwrt.sh ${toolchains[$PLAT_ARCH]} > /dev/null
-	make > /dev/null
+	../build_lib_openwrt.sh ${toolchains[$PLAT_ARCH]}
+	make
 fi
 
 echo "----------------------------------DONE---------------------------------"

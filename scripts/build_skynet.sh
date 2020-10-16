@@ -25,13 +25,13 @@ if [ "$TOOLCHAIN" == "native" ]; then
 	unset CXX
 	unset AR
 	unset STRIP
-	make linux > /dev/null 2>&1
+	make linux
 else
 	echo "=== export toolchain ==="
 	source /toolchains/$TOOLCHAIN
 	echo $CC
 	echo "========================"
-	make openwrt > /dev/null 2>&1
+	make openwrt
 fi
 
 if [ $? -ne 0 ]; then

@@ -15,7 +15,7 @@ cd $FILE_DIR
 du . -sh
 
 mkdir -p $RELEASE_DIR
-tar czvf $RELEASE_DIR/files.tar.gz * > /dev/null
+tar czvf $RELEASE_DIR/files.tar.gz *
 md5sum -b $RELEASE_DIR/files.tar.gz > $RELEASE_DIR/files.tar.gz.md5
 du $RELEASE_DIR/files.tar.gz -sh
 cat $RELEASE_DIR/files.tar.gz.md5
