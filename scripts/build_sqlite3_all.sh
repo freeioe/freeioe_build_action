@@ -2,11 +2,6 @@
 
 set -e
 
-if [ $# -lt 1 ] ; then
-	echo "Usage: build_ext_all.sh <target dir>"
-	exit 0
-fi
-
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
