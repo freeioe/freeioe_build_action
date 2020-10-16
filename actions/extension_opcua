@@ -11,5 +11,7 @@ else
 	WORKDIR_NEW=$CUR_DIR
 fi
 
+apt-get install -y python
+
 bash /scripts/build_ext_all.sh ${WORKDIR_NEW} opcua
 
