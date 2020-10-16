@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+WORKDIR=$1
+CUR_DIR=`pwd`
+
+if [ -n "$WORKDIR" ]; then
+	WORKDIR_NEW=$CUR_DIR/$WORKDIR
+else
+	WORKDIR_NEW=$CUR_DIR
+fi
+
+bash /scripts/build_ext_all.sh ${WORKDIR} opcua
+

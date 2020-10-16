@@ -6,16 +6,16 @@ set -e
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
-echo $SCRIPTPATH
+# echo $SCRIPTPATH
 
-BUILD_LIB=$1
+WORKDIR=$1
+BUILD_LIB=$2
 CUR_DIR=`pwd`
 
-
-if [ ! -n "$2" ]; then
-	WORKDIR=$CUR_DIR
+if [ -n "$WORKDIR" ]; then
+	echo "With workdir argument"
 else
-	WORKDIR=$2
+	WORKDIR=$CUR_DIR
 fi
 
 mkdir -p ${CUR_DIR}/__install
