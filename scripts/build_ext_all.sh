@@ -12,10 +12,10 @@ BUILD_LIB=$1
 CUR_DIR=`pwd`
 
 
-if [ ! -n "$2" ]
-WORKDIR=$CUR_DIR
+if [ ! -n "$2" ]; then
+	WORKDIR=$CUR_DIR
 else
-WORKDIR=$2
+	WORKDIR=$2
 fi
 
 mkdir -p ${CUR_DIR}/__install
