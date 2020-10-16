@@ -5,6 +5,8 @@ inputs:
   action:
     description: 'Build action script name'
     required: true
+  workdir:
+    description: 'Where is the building directory'
 
 outputs:
   filename:
@@ -15,6 +17,7 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.action }}
+    - ${{ inputs.workdir }}
 
 branding:
   icon: package
