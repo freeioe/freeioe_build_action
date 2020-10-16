@@ -19,6 +19,7 @@ source $SCRIPTPATH/plats.sh
 
 for item in "${!plats[@]}"; 
 do
+	printf "ARCH: $item \t TOOLCHAINE: ${plats[$item]} \n"
 	mkdir -p ${TARGET_PATH}/${item}/sqlite3
 	mkdir -p ${TARGET_PATH}/${item}/sqlite3/luaclib/sqlite3
 	mkdir -p ${TARGET_PATH}/${item}/sqlite3/lualib
