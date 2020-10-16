@@ -11,5 +11,5 @@ else
 	WORKDIR_NEW=$CUR_DIR
 fi
 
-bash /scripts/build_ext_all.sh ${WORKDIR} opcua
+bash /scripts/build_ext_all.sh ${WORKDIR_NEW} opcua
 
