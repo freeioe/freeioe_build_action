@@ -2,5 +2,25 @@
 
 set -e
 
+WORKDIR=$1
+CUR_DIR=`pwd`
+
+if [ -n "$WORKDIR" ]; then
+	WORKDIR_NEW=$CUR_DIR/$WORKDIR
+else
+	WORKDIR_NEW=$CUR_DIR
+fi
+
+cd ${WORKDIR_NEW}
+
 bash /scripts/build_skynet_all.sh
+
+cd ${CUR_DIR}
+
+if [ "${WORKDIR_NEW}" == "${CUR_DIR}" ]; then
+	echo "Done"
+else
+	echo "Move output files"
+	mv ${WORKDIR_NEW}/__output ${CUR_DIR}/
+fi
 
