@@ -30,13 +30,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - uses: freeioe/freeioe_build_action@v1
+      - uses: freeioe/freeioe_build_action@v1.1
         with:
-          action: build_skynet_all.sh
+          action: skynet
 
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: ${{ steps.build.outputs.filename }}
+          name: output_files
+		  # path: ${{ steps.build.outputs.filename }}
+          path: ${{ github.workspace }}/__output/**/*
 
 ```
