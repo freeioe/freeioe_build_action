@@ -12,7 +12,7 @@ else
 fi
 
 apt-get update
-apt-get install -y python
+apt-get install -y python libssl-dev
 
 bash /scripts/build_ext_all.sh ${WORKDIR_NEW} opcua
 
