@@ -8,15 +8,17 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 # echo $SCRIPTPATH
 
-SKYNET_DIR=`pwd`
+CUR_DIR=`pwd`
 
 # Get all platforms
 source $SCRIPTPATH/plats.sh
 
 for item in "${!plats[@]}"; 
 do
-	bash $SCRIPTPATH/build_skynet.sh $item ${plats[$item]} $SKYNET_DIR $SCRIPTPATH
+	bash $SCRIPTPATH/build_skynet.sh $item ${plats[$item]} $CUR_DIR $SCRIPTPATH
 done
+
+mv ${CUR_DIR}/ioe/__release ${CUR_DIR}/__install
 
 mkdir -p ${CUR_DIR}/__output
 
